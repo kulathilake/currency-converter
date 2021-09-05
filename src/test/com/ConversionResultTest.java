@@ -1,6 +1,6 @@
-package com.utils;
+package com;
 
-import main.com.utils.ConversionResult;
+import main.com.ConversionResult;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ public class ConversionResultTest {
     public void testResponseJsonMapsToConversionResult(){
         String response = "{\"USD_LKR\":200.446818}";
         double conversionRate = 200.446818;
-        ConversionResult result = ConversionResult.mapResponseToConverionResult(response);
+        ConversionResult result = ConversionResult.mapResponseToConverionResult(response,"USD","LKR");
         assertEquals(conversionRate,result.conversionRate,0.00001);
     }
 }

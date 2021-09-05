@@ -1,12 +1,13 @@
 package main.com.services;
 
+import main.com.ConversionResult;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
 
 public class ExchangeRateServiceImpl implements ExchangeRateService{
     URL serviceUrl;
@@ -25,13 +26,13 @@ public class ExchangeRateServiceImpl implements ExchangeRateService{
 
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String inputLine;
-        StringBuffer content = new StringBuffer();
+        StringBuilder content = new StringBuilder();
         while ((inputLine = in.readLine()) != null) {
             content.append(inputLine);
         }
         in.close();
         conn.disconnect();
-        System.out.println(content);
-        return 0;
+        ConversionResult result = ConversionResult.mapResponseToConverionResult(content.toString(),baseCurrency,targetCurrency);
+        return result.conversionRate;
     }
 }
