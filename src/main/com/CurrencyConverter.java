@@ -1,6 +1,7 @@
-package main.java;
+package main.com;
 
 public class CurrencyConverter {
+
     public static void main(String[] args){
 
     }
