@@ -20,5 +20,6 @@
     </orderEntry>
     <orderEntry type="library" name="junit" level="project" />
     <orderEntry type="library" name="google.code.gson" level="project" />
+    <orderEntry type="library" name="commons.cli" level="project" />
   </component>
 </module>
